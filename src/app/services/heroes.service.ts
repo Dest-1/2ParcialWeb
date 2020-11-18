@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 import { HeroeModel } from '../models/heroe.model';
 
 
@@ -50,7 +50,7 @@ export class HeroesService {
 
   obtenerHeroes(){
     return this.http.get(`${ this.url }/heroes.json`).pipe(
-      map( this.arregloHeroes )
+      map( this.arregloHeroes ), delay(1000)
     );
   }
 
